@@ -448,6 +448,11 @@ public class GraphEndpoint {
             if (message.contains("ImageNotFound"))
                 return;
             else {
+
+                if (this.configuration.getDelayAccountProvisioning()) {
+                    return;
+                }
+
                 LOG.info("Status code 404 or 410 caught in processResponseErrors {0}", message);
                 throw new UnknownUidException(message);
             }

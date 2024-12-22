@@ -41,6 +41,8 @@ public class MSGraphConfiguration extends AbstractConfiguration
 
     private boolean treatNetIdAsAlreadyExists;
     private boolean validateWithFailoverTrust = true;
+    private boolean delayAccountProvisioning;
+
     private GraphConfigurationHandler configHandler = new GraphConfigurationHandler();
 
     @ConfigurationProperty(order = 10, displayMessageKey = "ClientId.display", helpMessageKey = "ClientId.help", required = true)
@@ -219,6 +221,12 @@ public class MSGraphConfiguration extends AbstractConfiguration
     public boolean getTreatNetIdAsAlreadyExists() { return treatNetIdAsAlreadyExists; }
 
     public void setTreatNetIdAsAlreadyExists(boolean treatNetIdAsAlreadyExists) { this.treatNetIdAsAlreadyExists = treatNetIdAsAlreadyExists; }
+
+    @ConfigurationProperty(order = 160, displayMessageKey = "DelayAccountProvisioning.display", helpMessageKey = "DelayAccountProvisioning.help")
+
+    public boolean getDelayAccountProvisioning() { return delayAccountProvisioning; }
+
+    public void setDelayAccountProvisioning(boolean delayAccountProvisioning) { this.delayAccountProvisioning = delayAccountProvisioning; }
 
     @Override
     public void validate() {
